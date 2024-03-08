@@ -4,7 +4,7 @@ let player = {
 }
 
 let Gameboard = {
-    state: ["* * *\n* * *\n* * *"],
+    state: ["* * * \n * * * \n * * *"],
     score: 0,
     turnNum: 1,
     turnPlayer: "",
@@ -13,7 +13,11 @@ let Gameboard = {
         this.turnNum++;
       },
     action: function(num){
-        
+        let state = this.state[0]
+        state = state.split(" ")
+        const filteredArray = state.filter(element => element !== "\n");
+        return filteredArray
+        /* return to editing here */
     },
     start: function(turnPlayer){
         prompt(`${turnPlayer}'s turn`)
@@ -24,5 +28,6 @@ let Gameboard = {
 }
 
 
-Gameboard.turnCalc(Gameboard.turnNum); // Call turnCalc to update turnPlayer
-Gameboard.start(Gameboard.turnPlayer);  
+/* Gameboard.turnCalc(Gameboard.turnNum); // Call turnCalc to update turnPlayer
+Gameboard.start(Gameboard.turnPlayer);  */
+console.log(Gameboard.action())
